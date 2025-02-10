@@ -21,7 +21,6 @@ scale = 1
 def image_compress(img, x, y): # compress the image
     global img_comp
     img = img[::x, ::y] 
-    print(x, y)
     return img
     
 def convert_to_ascii(event):
