@@ -25,7 +25,6 @@ def convert_to_ascii255():
     temp_list = []
     for i in range(len(gray[0])):
         for j in range(len(gray[i])):
-            #print(int(np.round((gray[i][j] * 9))))
             temp_list.append(ascii[int(np.round((gray[i][j] * 9/255), 0))])
         print(''.join(temp_list))
         temp_list = []
@@ -35,15 +34,15 @@ def convert_to_ascii1():
     temp_list = []
     for i in range(len(gray[0])):
         for j in range(len(gray[i])):
-            #print(int(np.round((gray[i][j] * 9))))
             temp_list.append(ascii[int(np.round((gray[i][j] * 9), 0))])
         print(''.join(temp_list))
+        #print(int(np.round((gray[i][j]))))
         temp_list = []
 
 
 
 def generate(event):
-    if img[0][0][0] > 1:
+    if np.max(np.dot(image_compress(img, scale, scale)[...,:3], [0.2989, 0.5870, 0.1140])) > 1:
         convert_to_ascii255()
     else:
         convert_to_ascii1()
